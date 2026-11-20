@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>STEM F · SY 26-28 | University of Nueva Caceres</title>
+  <meta name="description" content="University of Nueva Caceres student developmental GitHub account by Prince Al Zhanjie B. Dela Rosa. Building websites and projects for STEM." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #0f1115;
+      --bg-card: #181b22;
+      --bg-elevated: #1e222b;
+      --border: #2a2f3a;
+      --text: #e8eaed;
+      --text-soft: #9aa0a6;
+      --orange: #ff7a1a;
+      --orange-soft: #ff9a4d;
+      --orange-dim: rgba(255, 122, 26, 0.15);
+      --orange-glow: rgba(255, 122, 26, 0.35);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    /* subtle grid background */
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255, 122, 26, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 122, 26, 0.03) 1px, transparent 1px);
+      background-size: 48px 48px;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .container {
+      position: relative;
+      z-index: 1;
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 2.5rem 1.25rem 4rem;
+    }
+
+    /* Badge */
+    .badge-wrap {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 1.75rem;
+    }
+
+    .badge {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid var(--orange);
+      box-shadow:
+        0 0 0 6px rgba(255, 122, 26, 0.12),
+        0 12px 40px rgba(0, 0, 0, 0.5),
+        0 0 30px var(--orange-glow);
+      transition: transform 0.35s ease, box-shadow 0.35s ease;
+    }
+
+    .badge:hover {
+      transform: scale(1.03);
+      box-shadow:
+        0 0 0 8px rgba(255, 122, 26, 0.18),
+        0 16px 48px rgba(0, 0, 0, 0.55),
+        0 0 40px var(--orange-glow);
+    }
+
+    /* Card */
+    .card {
+      background: var(--bg-card);
+      border-radius: 20px;
+      border: 1px solid var(--border);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+      padding: 2.25rem 1.75rem;
+      text-align: center;
+    }
+
+    @media (min-width: 480px) {
+      .card {
+        padding: 2.5rem 2.25rem;
+      }
+    }
+
+    .tag {
+      display: inline-block;
+      background: var(--orange-dim);
+      color: var(--orange-soft);
+      font-size: 0.72rem;
+      font-weight: 600;
+      padding: 0.35rem 0.9rem;
+      border-radius: 999px;
+      margin-bottom: 1.25rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      border: 1px solid rgba(255, 122, 26, 0.25);
+    }
+
+    h1 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      font-size: 1.85rem;
+      letter-spacing: -0.03em;
+      color: var(--text);
+      margin-bottom: 0.3rem;
+      line-height: 1.2;
+    }
+
+    h1 span {
+      color: var(--orange);
+    }
+
+    .subtitle {
+      font-size: 0.95rem;
+      color: var(--text-soft);
+      font-weight: 500;
+      margin-bottom: 1.5rem;
+    }
+
+    .about {
+      font-size: 1.02rem;
+      line-height: 1.7;
+      color: var(--text-soft);
+      margin-bottom: 1.75rem;
+      text-align: left;
+    }
+
+    .about strong {
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    .divider {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--border), transparent);
+      margin: 1.5rem 0;
+    }
+
+    .maintainer {
+      font-size: 1rem;
+      margin-bottom: 0.4rem;
+      color: var(--text);
+    }
+
+    .maintainer span {
+      font-weight: 600;
+      color: var(--orange-soft);
+    }
+
+    .ai-note {
+      font-size: 0.88rem;
+      color: var(--text-soft);
+      margin-bottom: 1.5rem;
+    }
+
+    .ps-box {
+      background: var(--bg-elevated);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--orange);
+      border-radius: 12px;
+      padding: 1.15rem 1.25rem;
+      text-align: left;
+      margin-bottom: 1.75rem;
+    }
+
+    .ps-label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--orange);
+      margin-bottom: 0.4rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .ps-text {
+      font-size: 0.95rem;
+      line-height: 1.55;
+      color: var(--text-soft);
+    }
+
+    .ps-text a {
+      color: var(--orange-soft);
+      font-weight: 600;
+      text-decoration: none;
+      border-bottom: 1px solid rgba(255, 154, 77, 0.4);
+      transition: all 0.2s;
+    }
+
+    .ps-text a:hover {
+      color: var(--orange);
+      border-bottom-color: var(--orange);
+    }
+
+    .links {
+      display: flex;
+      flex-direction: column;
+      gap: 0.7rem;
+    }
+
+    @media (min-width: 420px) {
+      .links {
+        flex-direction: row;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+    }
+
+    .link-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.45rem;
+      padding: 0.7rem 1.2rem;
+      border-radius: 10px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+
+    .link-btn.primary {
+      background: var(--orange);
+      color: #111;
+      box-shadow: 0 4px 18px var(--orange-glow);
+    }
+
+    .link-btn.primary:hover {
+      background: var(--orange-soft);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px var(--orange-glow);
+    }
+
+    .link-btn.secondary {
+      background: transparent;
+      color: var(--text-soft);
+      border: 1px solid var(--border);
+    }
+
+    .link-btn.secondary:hover {
+      color: var(--text);
+      border-color: #3a404c;
+      background: var(--bg-elevated);
+      transform: translateY(-1px);
+    }
+
+    footer {
+      margin-top: 2.25rem;
+      text-align: center;
+      font-size: 0.8rem;
+      color: #6b7280;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="badge-wrap">
+      <img src="stem-f-badge.png" alt="STEM F SY 26-28 badge" class="badge" />
+    </div>
+
+    <div class="card">
+      <div class="tag">University of Nueva Caceres</div>
+      <h1>STEM F · <span>SY 26–28</span></h1>
+      <p class="subtitle">Student Developmental GitHub Account</p>
+
+      <p class="about">
+        This GitHub account is a <strong>University of Nueva Caceres</strong> student developmental space for creating websites, tools, and experiments for academic projects, STEM work, and personal growth.
+      </p>
+
+      <div class="divider"></div>
+
+      <p class="maintainer">
+        Maintainer & coder: <span>Prince Al Zhanjie B. Dela Rosa</span>
+      </p>
+      <p class="ai-note">
+        Utilizing AI for design assistance
+      </p>
+
+      <div class="ps-box">
+        <div class="ps-label">PS from Prince</div>
+        <p class="ps-text">
+          I don’t really know how to design… if y’all wanna check out the actual stuff I work on → 
+          <a href="https://github.com/zeroshiiro" target="_blank" rel="noopener">github.com/zeroshiiro</a>
+        </p>
+      </div>
+
+      <div class="links">
+        <a class="link-btn primary" href="https://zeroshiiro.github.io" target="_blank" rel="noopener">
+          Portfolio
+        </a>
+        <a class="link-btn secondary" href="https://linkedin.com/in/zhanjiewx" target="_blank" rel="noopener">
+          LinkedIn
+        </a>
+        <a class="link-btn secondary" href="https://github.com/zeroshiiro" target="_blank" rel="noopener">
+          Projects
+        </a>
+      </div>
+    </div>
+
+    <footer>
+      STEM · University of Nueva Caceres
+    </footer>
+  </div>
+</body>
+</html>
